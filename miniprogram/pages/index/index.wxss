@@ -1,0 +1,29 @@
+.calendar {
+  background-color:white; /*背景色为白色*/
+  padding-top: 10px;    /*上内边距为10px*/
+  color: #38ACFF;
+  border-radius: 15px;   /*添加边框圆角*/
+  border: 2rpx solid #38ACFF;
+  -webkit-box-shadow:0 0 10px #38ACFF;
+  -moz-box-shadow:0 0 10px #38ACFF;
+  box-shadow:0 0 10px #38ACFF;
+}
+.calendarBox{
+  width: 90%;
+  margin-top: 20rpx;
+}
+.dayDetail{
+  width: 90%;
+  
+}
+
+.item{
+  margin-top: 20rpx;
+  /* background-color:aliceblue */
+}
+.text{
+  font-size: 20px;
+  text-align: center;
+  
+}
+

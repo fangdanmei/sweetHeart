@@ -1,0 +1,20 @@
+<!--pages/flowDetail/flowDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="row">
+  <view class="item" style="text-align:center">
+ {{title}}
+  </view>
+   
+ <view class="item">
+     <template is="wxParse" data="{{wxParseData:message.nodes}}"/>
+  </view>
+  
+  <view wx:if="{{image.length>0}}">
+    <view wx:for="{{image}}">
+    <image src="{{item}}" class="img" mode='aspectFit' data-src="{{item}}" bindtap="previewImage"></image>
+    </view>
+  </view>
+   <!-- <view class="item">
+     <text>{{message}}</text>
+  </view> -->
+</view>

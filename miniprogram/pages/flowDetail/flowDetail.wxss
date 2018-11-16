@@ -1,0 +1,24 @@
+/* pages/flowDetail/flowDetail.wxss */
+@import "../../wxParse/wxParse.wxss";
+.row{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item{
+ 
+  height: auto;
+  width: 95%; 
+  font-size: 16px;
+  line-height:2em;
+ 
+  /* background-color: gray;  */
+  
+}
+.img{
+  height: 400px;
+  width: 338px;
+
+}

@@ -1,0 +1,53 @@
+{
+  "cloud":true,
+  "pages": [
+    "pages/foodlist/foodlist",
+    "pages/index/index",
+    "pages/flow/flows",
+    "pages/flowDetail/flowDetail",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction"
+  ],
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "姐妹不慌",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "color":"#9E9E9E",
+    "borderStyle":"#ccc",
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/首页.png",
+        "selectedIconPath": "images/首页-cur.png",
+        "active": true
+      },
+      {
+        "pagePath":"pages/flow/flows",
+        "text":"流程办理",
+        "iconPath":"images/流程.png",
+        "selectedIconPath":"images/流程-cur.png",
+        "active":false
+       },
+       {
+      "pagePath": "pages/foodlist/foodlist",
+      "text":"升白美食",
+      "iconPath":"images/美食.png",
+      "selectedIconPath": "images/美食-cur.png",
+      "active": false
+      }
+    
+    ]
+  },
+  "plugins":{
+    "calendar":{
+      "version":"1.1.3",
+      "provider":"wx92c68dae5a8bb046"
+    }
+  }
+}

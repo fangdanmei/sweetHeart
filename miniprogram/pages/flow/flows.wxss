@@ -1,0 +1,30 @@
+
+.row{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  
+}
+.item{
+   display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 90%; 
+  align-items:flex-end;
+  margin-left: 5%;
+  /* background-color: gray  */
+}
+.img{
+width:100rpx;
+height: 100rpx;
+margin-top: 30rpx;
+}
+.text{
+ font-size: 20px;
+ align-content: center;
+ margin-bottom: 15px;
+ margin-left: 30px
+
+}

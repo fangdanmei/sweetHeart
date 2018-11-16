@@ -1,0 +1,10 @@
+<!--pages/flow/flows.wxml-->
+<view class='row'>
+ <navigator wx:for="{{flows}}" url='{{url}}?id={{item.id}}'>
+   <view class='item'>
+    <image src="{{item.src}}" class='img'></image>
+    <text class='text'>{{item.name}}</text>
+   </view>
+ </navigator>
+</view>
+

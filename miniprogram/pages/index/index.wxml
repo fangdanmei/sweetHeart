@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+<view><text>主任出诊时间表</text></view>
+
+<view class="calendarBox">
+<calendar calendar-style="calendar" header-style="calendar-header" board-style="calendar-board" days-color="{{dayStyle}}" weeks-type="cn" binddayClick="dayClick" lunar="true"/>
+</view>
+
+<view class='dayDetail'>
+
+  <view class='item'>
+    <text>上午:</text>
+    <view class="text"><text>{{routMorn}}</text></view> 
+  </view>
+
+  <view class='item'>
+    <view><text>下午:</text></view>
+    <view class="text"><text>{{routAfter}}</text></view> 
+  </view>
+</view>
+
+
+  
+
+</view>
