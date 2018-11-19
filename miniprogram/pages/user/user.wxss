@@ -1,0 +1,19 @@
+/* pages/user/user.wxss */
+.calendar {
+  background-color:white; /*背景色为白色*/
+  padding-top: 10px;    /*上内边距为10px*/
+  /* color:pink;
+  border-radius: 15px;   
+  border: 2rpx solid pink;
+  -webkit-box-shadow:0 0 10px pink;
+  -moz-box-shadow:0 0 10px pink;
+  box-shadow:0 0 10px pink;  */
+}
+.calendarBox{
+  width: 90%;
+  margin-top: 20rpx;
+}
+.item{
+   margin-top: 20rpx;
+   align-items:flex-start;
+}

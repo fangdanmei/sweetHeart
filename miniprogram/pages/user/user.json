@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的小安排",
+    "usingComponents": {
+      "calendar": "plugin://calendar/calendar"
+    }
+}

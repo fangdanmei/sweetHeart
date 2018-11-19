@@ -1,10 +1,14 @@
 {
   "cloud":true,
   "pages": [
+    "pages/action/action",
+    "pages/user/user",
     "pages/foodlist/foodlist",
     "pages/index/index",
     "pages/flow/flows",
     "pages/flowDetail/flowDetail",
+    "pages/science/science",
+    
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction"
@@ -39,6 +43,20 @@
       "text":"升白美食",
       "iconPath":"images/美食.png",
       "selectedIconPath": "images/美食-cur.png",
+      "active": false
+      },
+      {
+        "pagePath": "pages/science/science",
+        "text": "小科普",
+        "iconPath": "images/科普知识.png",
+        "selectedIconPath": "images/科普知识-cur.png",
+        "active": false
+      },
+      {
+      "pagePath": "pages/user/user",
+      "text": "我的",
+      "iconPath": "images/我.png",
+      "selectedIconPath": "images/我-cur.png",
       "active": false
       }
     

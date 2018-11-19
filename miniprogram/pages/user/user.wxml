@@ -1,0 +1,17 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+
+<view class="calendarBox">
+<calendar calendar-style="calendar" header-style="calendar-header" board-style="calendar-board" days-color="{{dayStyle}}" weeks-type="cn" binddayClick="dayClick" lunar="true"/>
+</view>
+
+<view class='item'>
+
+<text>日程:</text>
+<textarea></textarea>
+
+<button type='primary' bindtap='newAction'>添加活动</button>
+</view>
+
+
+</view>
