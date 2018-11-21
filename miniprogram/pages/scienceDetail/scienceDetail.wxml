@@ -1,0 +1,12 @@
+<!--pages/scienceDetail/scienceDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="row">
+  <view class="item" style="text-align:center">
+ {{title}}
+  </view>
+   
+ <view class="item">
+     <template is="wxParse" data="{{wxParseData:message.nodes}}"/>
+  </view>
+
+</view>

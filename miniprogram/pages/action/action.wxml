@@ -7,8 +7,8 @@
 </view>
 
 <view class='section'>
-<view>时间</view>
-  <view>{{year}}年{{month}}月{{day}}日</view>
+<view>时间:{{year}}年{{month}}月{{day}}日</view>
+ 
   <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px; font-size:14px" value="{{value}}" bindchange="bindChange">
     <picker-view-column>
       <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>

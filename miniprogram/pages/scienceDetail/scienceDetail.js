@@ -1,39 +1,39 @@
-// pages/science/science.js
+// pages/scienceDetail/scienceDetail.js
+var app = getApp();
+wx.cloud.init();
 const db = wx.cloud.database();
-var file = "../scienceDetail/scienceDetail";
+const _ = db.command;
+let wxparse = require("../../wxParse/wxParse.js");
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: { 
-      cateItems:[],
-       curNav: 1, 
-       curIndex: 0,
-       url: file 
-       }, 
-
- //事件处理函数 
-  switchRightTab: function (e) { 
-    // 获取item项的id，和数组的下标值 
-     let id = e.target.dataset.id,
-      index = parseInt(e.target.dataset.index); 
-      // 把点击到的某一项，设为当前index  
-      this.setData({ curNav: id, curIndex: index })
-       } ,
-    
+  data: {
+    title: '',
+    message: [],
+    image: []
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _this=this;
-    db.collection('scienceList')
-    .get({
+    var _this = this; 
+
+    db.collection('scienceDetail').doc(options.id).get({
       success: function (res) {
-       // console.log(res.data);
-        _this.setData({ cateItems:res.data});
+        _this.setData({
+          title: res.data.name,
+         
+        });
+        // if (res.data.img != null) {
+        //   _this.setData({ image: res.data.img });
+        // }
+        wxparse.wxParse('message', 'html', res.data.message, _this);
+
       }
+
     })
   },
 

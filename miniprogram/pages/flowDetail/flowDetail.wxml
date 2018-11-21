@@ -8,12 +8,13 @@
  <view class="item">
      <template is="wxParse" data="{{wxParseData:message.nodes}}"/>
   </view>
-  
+ 
+ <!-- <button open-type="contact">在线客服</button> -->
   <view wx:if="{{image.length>0}}">
     <view wx:for="{{image}}">
     <image src="{{item}}" class="img" mode='aspectFit' data-src="{{item}}" bindtap="previewImage"></image>
     </view>
-  </view>
+  </view> 
    <!-- <view class="item">
      <text>{{message}}</text>
   </view> -->

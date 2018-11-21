@@ -29,7 +29,7 @@ Page({
         // console.log(res.data);
         
         //添加缓存
-        wx:
+        // wx:
         _this.setData({
            title: res.data.name,
            });

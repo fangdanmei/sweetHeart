@@ -1,13 +1,17 @@
 {
   "cloud":true,
   "pages": [
+    "pages/science/science",
+    "pages/scienceDetail/scienceDetail",
+   "pages/index/index",
     "pages/action/action",
+    "pages/flowDetail/flowDetail",
     "pages/user/user",
     "pages/foodlist/foodlist",
-    "pages/index/index",
+    
     "pages/flow/flows",
-    "pages/flowDetail/flowDetail",
-    "pages/science/science",
+    
+
     
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
