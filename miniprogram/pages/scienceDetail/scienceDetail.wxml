@@ -2,11 +2,15 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <view class="row">
   <view class="item" style="text-align:center">
- {{title}}
+ <text class='title'>{{title}}</text>
   </view>
    
- <view class="item">
+ <!-- <view class="item">
      <template is="wxParse" data="{{wxParseData:message.nodes}}"/>
+  </view> -->
+
+  <view class='item'>
+  <rich-text nodes="{{message}}" class='rich' space='nbsp'></rich-text>
   </view>
 
 </view>

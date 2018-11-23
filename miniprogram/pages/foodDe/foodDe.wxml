@@ -1,0 +1,34 @@
+<!--pages/foodDe/foodDe.wxml-->
+<view class='main'>
+
+<view class='img'>
+<image src="{{img}}" class="image" mode="scaleToFill" lazy-load="true"></image>
+</view>
+
+<view class='name'>
+   {{name}} 
+</view>
+
+<view class='tips' wx:if="{{brief.length>0}}">
+<view class="text_1">{{brief}}</view>
+</view>
+
+<view class='material'>
+ <text class="boderText">材料:\n</text>
+ <view class="text_1">{{material}}</view>
+</view>
+
+<view class='steps' wx:for="{{steps}}" wx:for-index="index">
+ <text  class="boderText">步骤{{index+1}}:\n</text>
+ <view wx:if="{{item.img.length>0}}">
+ <image src="{{item.img}}"  lazy-load="true"></image>
+ </view>
+ <view class="text_1">{{item.text}}</view>
+</view>
+
+<view class='tips' wx:if="{{tips.length>0}}">
+<text class="tipsText">小提示:\n</text>
+<view class="text_1" wx:for="{{tips}}">{{item}}</view>
+</view>
+
+</view>

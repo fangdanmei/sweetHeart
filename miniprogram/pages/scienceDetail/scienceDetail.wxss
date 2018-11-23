@@ -11,7 +11,13 @@
   width: 95%; 
   font-size: 16px;
   line-height:2em;
- 
+  margin:0 auto;
   /* background-color: gray;  */
   
+}
+.item .title{
+font-size: 18px
+}
+.rich{
+  text-indent: 2em;
 }

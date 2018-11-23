@@ -1,0 +1,54 @@
+/* pages/foodDe/foodDe.wxss */
+.main{
+   display: flex;
+   flex-direction: column;
+   /* border: solid gray; */
+}
+.img{
+  /* border: solid green; */
+  width: 100%;
+  height: 300px; 
+}
+.image{
+ width: 100%;
+ height: 100%;
+}
+
+.name{
+  /* border: solid black; */
+  font-size:26px;
+  font-weight: bolder;
+  text-align: center;
+  margin: 3%;
+
+}
+.material{
+   /* border: solid blue; */
+   margin-left: 3%;
+   margin-bottom: 3%;
+}
+.steps{
+   /* border: solid gold; */
+   margin-left: 3%;
+   margin-bottom: 3%;
+}
+.tips{
+    /* border: solid greenyellow; */
+    margin-left: 3%;
+}
+
+.boderText{
+  font-size:18px;
+  font-weight: bold;
+  line-height: 2em;
+}
+.text_1{
+  font-size: 16px;
+  line-height:1.7em;
+}
+.tipsText{
+   font-size:18px;
+  font-weight: bold;
+  line-height: 2em;
+  color: red;
+}

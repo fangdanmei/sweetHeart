@@ -6,8 +6,8 @@ App({
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
       wx.cloud.init({
-         env:"work-1374f9",
-        //  env:"sophie-bd5744",
+        env:"work-1374f9",
+          // env:"sophie-bd5744",
         traceUser: true,
       })
     }

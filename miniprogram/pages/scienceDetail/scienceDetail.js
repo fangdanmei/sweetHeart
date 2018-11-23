@@ -11,7 +11,7 @@ Page({
    */
   data: {
     title: '',
-    message: [],
+    message:'',
     image: []
   },
 
@@ -25,12 +25,13 @@ Page({
       success: function (res) {
         _this.setData({
           title: res.data.name,
-         
+          
+          message:res.data.message
         });
         // if (res.data.img != null) {
         //   _this.setData({ image: res.data.img });
         // }
-        wxparse.wxParse('message', 'html', res.data.message, _this);
+        // wxparse.wxParse('message', 'html', res.data.message, _this);
 
       }
 

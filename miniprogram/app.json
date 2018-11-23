@@ -1,18 +1,15 @@
 {
   "cloud":true,
   "pages": [
-    "pages/science/science",
-    "pages/scienceDetail/scienceDetail",
-   "pages/index/index",
+    "pages/index/index",
     "pages/action/action",
     "pages/flowDetail/flowDetail",
     "pages/user/user",
     "pages/foodlist/foodlist",
-    
+    "pages/foodDe/foodDe",
+    "pages/science/science",
+    "pages/scienceDetail/scienceDetail",
     "pages/flow/flows",
-    
-
-    
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction"
@@ -21,7 +18,7 @@
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "姐妹不慌",
+    "navigationBarTitleText": "姐妹不要慌",
     "navigationBarTextStyle": "black"
   },
   "tabBar":{
@@ -50,11 +47,11 @@
       "active": false
       },
       {
-        "pagePath": "pages/science/science",
-        "text": "小科普",
-        "iconPath": "images/科普知识.png",
-        "selectedIconPath": "images/科普知识-cur.png",
-        "active": false
+      "pagePath": "pages/science/science",
+      "text": "小科普",
+      "iconPath": "images/科普知识.png",
+      "selectedIconPath": "images/科普知识-cur.png",
+      "active": false
       },
       {
       "pagePath": "pages/user/user",
@@ -63,6 +60,7 @@
       "selectedIconPath": "images/我-cur.png",
       "active": false
       }
+    
     
     ]
   },

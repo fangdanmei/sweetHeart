@@ -1,9 +1,15 @@
 <!--pages/foodlist/foodlist.wxml-->
 <view class='row'>
- <!-- <navigator wx:for="{{flows}}" url='{{url}}?id={{item.id}}'>
+ <navigator wx:for="{{food}}" url='{{url}}?id={{item._id}}'>
    <view class='item'>
-    <image src="{{item.src}}" class='img'></image>
-    <text class='text'>{{item.name}}</text>
+
+    <view class='item-left'><image src="{{item.img}}" class='img' lazy-load="true"></image> </view>
+   
+   <view class='item-right'>
+    <view> <text class='text'class='name'>{{item.name}}</text></view>
+    <view class="meterial"><text >{{item.material}}</text></view>
    </view>
- </navigator> -->
+   
+   </view>
+ </navigator>
 </view>

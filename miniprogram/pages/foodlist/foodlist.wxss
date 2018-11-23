@@ -1,19 +1,57 @@
 /* pages/foodlist/foodlist.wxss */
 
-.row{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-around;
-  flex-wrap: wrap;
+
+.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 135px;
+    width: 95%;
+    margin: auto;
+    /* background-color: gray; */
+    margin-bottom: 2%;
+    position: relative;
+    
+}
+.item-left{
+   width: 40%;
+   /* border: solid greenyellow; */
+}
+.img{
+  width: 132px;
+  height:122px;
+  margin-left: 10rpx;
+  /* border: solid green; */
+  border-radius:5px;
   
 }
-.item{
-   display: flex;
-  flex-direction: row;
-  height: auto;
-  width: 90%; 
-  align-items:flex-end;
+
+.item-right{
+  display: flex;
+  flex-direction: column;
+  /* border: solid teal; */
+  width: 55%;
+  height: 100%;
+  margin-left: 10rpx;
+  float: left;
+}
+.name{
+  font-size: 20px;
+  /* border: solid red; */
+  font-weight: bold;
+  margin: 5%;
+  float: left;
+}
+.meterial text{
+  float: left;
+  font-size: 16px;
   margin-left: 5%;
-  /* background-color: gray  */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  line-height: 1.7em;
+  /* border: solid red; */
 }

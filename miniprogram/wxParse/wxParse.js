@@ -67,6 +67,7 @@ function wxParseImgTap(e) {
 /**
  * 图片视觉宽高计算函数区 
  **/
+ 
 function wxParseImgLoad(e) {
   var that = this;
   var tagFrom = e.target.dataset.from;
@@ -96,8 +97,8 @@ function calMoreImageInfo(e, idx, that, bindName) {
   var keyW = key + '.width'
   var keyH = key + '.height'
 
-  // console.log("wxparsew" + recal.imageWidth);
-  // console.log("wxparseh" + recal.imageheight);
+  console.log("wxparsew" + recal.imageWidth);
+  console.log("wxparseh" + recal.imageheight);
 
   that.setData({
     [keyW]: recal.imageWidth,
@@ -115,18 +116,25 @@ function wxAutoImageCal(originalWidth, originalHeight, that, bindName, temImage)
   
   var widthValue = '';
   if (widthIndex != -1) {
-    widthValue = arr[widthIndex + 1];
+    // widthValue = arr[widthIndex + 1];
     
     console.log(arr);
-    var trr=arr.split(";");///sophie
+    var trr = arr.split(";");///sophie
+    for(let i=0;i<trr.length;++i){
+      if (trr[i].indexOf("width")!=-1){
+        widthValue=trr[i].split(":")[1];
+      } 
+    }
+    // console.log(trr);
     console.log(widthValue);
   }
-  var percentageIndex = widthValue.search("%;");
-  var pixelIndex = widthValue.search("px;");
+  var percentageIndex = widthValue.search("%");
+  var pixelIndex = widthValue.search("px");
   var percentageWidthValue = '';
   var pixelWidthValue = '';
   var pixelHeightValue = '';
-
+  console.log(percentageIndex);
+  console.log(pixelIndex);
   /**
    * 获取width的百分比数值
    * 因为widthValue是带有%和;的，例如宽度为50%，那么widthValue的数据格式为widthValue == "50%;"，
@@ -142,20 +150,28 @@ function wxAutoImageCal(originalWidth, originalHeight, that, bindName, temImage)
    * 因此多出来后面三个字符'px;'，所以要去除后面三位，
    * 而当width为px显示时，height和width是成对出现的
    */
-  if ((pixelIndex > 0) && (widthValue.length == pixelIndex + 3)) {
-    pixelWidthValue = widthValue.slice(0, -3);
+  if ((pixelIndex > 0) && (widthValue.length == pixelIndex + 2)) {
+    pixelWidthValue = widthValue.slice(0, -2);
 
     var heightIndex = arr.indexOf("height:");
     var heightValue = '';
     if (heightIndex != -1) {
-      heightValue = arr[heightIndex + 1];
+      // heightValue = arr[heightIndex + 1];
+      console.log(arr);
+      var hrr = arr.split(";");///sophie
+      for (let i = 0; i < hrr.length; ++i) {
+        if (hrr[i].indexOf("height") != -1) {
+          heightValue = hrr[i].split(":")[1];
+        }
+      }
+      console.log(heightValue);
     }
-    var pixelHeightIndex = heightValue.search("px;");
-    if ((pixelHeightIndex > 0) && (heightValue.length == pixelHeightIndex + 3)) {
-      pixelHeightValue = heightValue.slice(0, -3);
+    var pixelHeightIndex = heightValue.search("px");
+    if ((pixelHeightIndex > 0) && (heightValue.length == pixelHeightIndex + 2)) {
+      pixelHeightValue = heightValue.slice(0, -2);
     }
   }
-
+  console.log(pixelHeightValue);
   //获取图片的原始长宽
   var windowWidth = 0, windowHeight = 0;
   var autoWidth = 0, autoHeight = 0;
@@ -175,12 +191,14 @@ function wxAutoImageCal(originalWidth, originalHeight, that, bindName, temImage)
     autoHeight = (autoWidth * originalHeight) / originalWidth;
     results.imageWidth = autoWidth;
     results.imageheight = autoHeight;
+    console.log("1++");
   
   } else if (pixelWidthValue && pixelHeightValue && (pixelWidthValue <= windowWidth)) {
     results.imageWidth = pixelWidthValue;
     results.imageheight = pixelHeightValue;
 
-
+    console.log(pixelWidthValue+"Aw");
+    console.log(pixelHeightValue+"AH");
    
   } else {
     //判断按照那种方式进行缩放
@@ -192,15 +210,17 @@ function wxAutoImageCal(originalWidth, originalHeight, that, bindName, temImage)
       // console.log("autoHeight" + autoHeight);
       results.imageWidth = autoWidth;
       results.imageheight = autoHeight;
+      console.log("3++");
       
     } else {//否则展示原来的数据
       results.imageWidth = originalWidth;
       results.imageheight = originalHeight;
-     
+      console.log("4++");
     }
   }
+  console.log(results + "As");
   return results;
- 
+
 }
 
 function wxParseTemArray(temArrayName,bindNameReg,total,that){
