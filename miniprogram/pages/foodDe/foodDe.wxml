@@ -31,4 +31,6 @@
 <view class="text_1" wx:for="{{tips}}">{{item}}</view>
 </view>
 
+
+
 </view>

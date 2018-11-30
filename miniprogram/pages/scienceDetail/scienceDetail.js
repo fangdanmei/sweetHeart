@@ -3,7 +3,7 @@ var app = getApp();
 wx.cloud.init();
 const db = wx.cloud.database();
 const _ = db.command;
-let wxparse = require("../../wxParse/wxParse.js");
+// let wxparse = require("../../wxParse/wxParse.js");
 Page({
 
   /**

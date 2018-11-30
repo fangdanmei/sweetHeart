@@ -1,15 +1,16 @@
 {
   "cloud":true,
   "pages": [
+    "pages/foodlist/foodlist",
     "pages/index/index",
+    "pages/flow/flows",
     "pages/action/action",
     "pages/flowDetail/flowDetail",
     "pages/user/user",
-    "pages/foodlist/foodlist",
+   
     "pages/foodDe/foodDe",
     "pages/science/science",
     "pages/scienceDetail/scienceDetail",
-    "pages/flow/flows",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction"

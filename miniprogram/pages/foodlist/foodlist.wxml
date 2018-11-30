@@ -1,5 +1,6 @@
 <!--pages/foodlist/foodlist.wxml-->
 <view class='row'>
+
  <navigator wx:for="{{food}}" url='{{url}}?id={{item._id}}'>
    <view class='item'>
 
@@ -12,4 +13,14 @@
    
    </view>
  </navigator>
+
+<view class="loading" hidden='{{isShowLoadmore}}'>
+<view>正在加载...</view>
+</view>
+
+<view  class="loading" hidden='{{!isShowNoDatasTips}}'>
+<view>暂无数据</view>
+</view>
+
+
 </view>

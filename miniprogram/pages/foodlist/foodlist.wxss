@@ -55,3 +55,9 @@
   line-height: 1.7em;
   /* border: solid red; */
 }
+.loading{
+  padding: 10rpx;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bolder;
+}

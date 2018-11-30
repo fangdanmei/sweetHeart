@@ -1,21 +1,26 @@
 <!--pages/flowDetail/flowDetail.wxml-->
-<import src="../../wxParse/wxParse.wxml"/>
+
+<!-- 显示title -->
 <view class="row">
   <view class="item" style="text-align:center">
  {{title}}
   </view>
-   
- <view class="item">
-     <template is="wxParse" data="{{wxParseData:message.nodes}}"/>
+
+<!-- 显示主题内容 -->
+  <view class="item" wx:for="{{message}}" >
+    <view wx:if="{{item.img.length>0}}">
+     <image src="{{item.img}}" mode='aspectFit' style="{{item.style}}" data-src="{{item.img}}" bindtap="previewImage"></image>
+    </view>
+    <view wx:else >
+    <rich-text nodes="{{item}}"></rich-text>
+    </view>
   </view>
- 
- <!-- <button open-type="contact">在线客服</button> -->
+
+  <!-- 尾部的图片 -->
   <view wx:if="{{image.length>0}}">
     <view wx:for="{{image}}">
     <image src="{{item}}" class="img" mode='aspectFit' data-src="{{item}}" bindtap="previewImage"></image>
     </view>
   </view> 
-   <!-- <view class="item">
-     <text>{{message}}</text>
-  </view> -->
+
 </view>

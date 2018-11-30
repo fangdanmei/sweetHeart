@@ -34,29 +34,21 @@ Page({
     //如果过期了,就删除缓存,从数据库中读取数据,并存入缓存,如果没有过期,就直接从缓存中读取.
     if (expiration < timestampNow) {
       console.log("过期de");
-      wx.clearStorageSync();
+      wx.removeStorageSync("expiration_foodDe"+ options.id)
 
       db.collection('food').doc(options.id).get({
         success: function (res) {
           // res.data 包含该记录的数据
           // console.log(res.data.tips);
           var timestamp = Date.parse(new Date());
-          let expiration = timestamp + 600000;
+          let expirationSet = timestamp + 86400000;
           wx.setStorage({
             key: 'foodDe' + options.id,
             data: res.data,
           });
-          wx.setStorageSync("expiration_foodDe" + options.id, expiration);
-          console.log("过期时间2de" + expiration);
-          // wx.getStorage({
-          //   key: 'foodList',
-          //   success: function (res) {
-          //     console.log("过期" + res.data);
-          //   },
-          // })
-
-          // _this.setData({ food: res.data });
-
+          wx.setStorageSync("expiration_foodDe" + options.id, expirationSet);
+          var expiration00 = wx.getStorageSync("expiration_foodDe" + options.id);
+           console.log("过期de"+expiration00);
           if (res.data.tips != undefined) {
             _this.setData({
               tips: res.data.tips,
@@ -117,14 +109,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log("onHide");
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log("fooddeonUnload");
   },
 
   /**

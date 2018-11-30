@@ -4,7 +4,6 @@ var app = getApp();
 wx.cloud.init();
 const db = wx.cloud.database();
 const _ = db.command;
-let wxparse = require("../../wxParse/wxParse.js");
 Page({
 
   /**
@@ -12,7 +11,7 @@ Page({
    */
   data: {
     title:'',
-    message:'',
+    message:[],
     image:[]
   },
 
@@ -22,37 +21,68 @@ Page({
   onLoad: function (options) { 
     var _this=this; 
     var fileID="";
-    console.log(options.id);
-    db.collection('flowsDetail').doc(options.id).get({
-      success: function (res) {
-        // res.data 包含该记录的数据
-        // console.log(res.data);
-        
-        //添加缓存
-        // wx:
-        _this.setData({
-           title: res.data.name,
-           });
-        if(res.data.img!=null){
-          _this.setData({image:res.data.img});
-        }
-        wxparse.wxParse('message','html',res.data.message,_this);
-        // console.log(res.data.filepath);
-        // fileID = res.data.filepath;
-        // wx.cloud.callFunction({
-        //   name: 'readFile',
-        //   data: { fileID: fileID },
-        //   success: res => {
-        //     console.log(res.result)
-        //     _this.setData({ message: res.result});
-        //   },
-        //   fail: err => {
-        //     console.log(err)
-        //   }
-        // })
-      }
+    var expiration = wx.getStorageSync("expiration_flowDetail"+options.id);//拿到过期时间
+    var timestampNow = Date.parse(new Date());//拿到现在时间
+    var flowDetailStorage= wx.getStorageSync("flowDetail"+options.id);
+    // console.log("过期时间" + expiration);
+    // console.log("现在时间" + timestampNow);
 
-    })
+    // console.log();
+
+    if (expiration < timestampNow | flowDetailStorage == ""){
+       console.log("过期");
+       wx.clearStorageSync();
+      db.collection('flowsDetail').doc(options.id).get({
+        success: function (res) {
+          // res.data 包含该记录的数据
+          var timestamp = Date.parse(new Date());
+          let expiration = timestamp + 100000;
+          wx.setStorage({
+            key: 'flowDetail'+options.id,
+            data: res.data,
+          })
+          wx.setStorageSync("expiration_flowDetail" + options.id, expiration);
+         // 判断是否有图片
+        // console.log("message00"+res.data.message);
+          if (res.data.img != null) {
+            _this.setData({
+              title: res.data.name,
+              message: res.data.message,
+              image: res.data.img 
+            });
+          }else{
+            _this.setData({
+              title: res.data.name,
+              message: res.data.message
+            });
+          }
+        }
+      })
+    }else{
+      //wx.clearStorageSync();
+       console.log("没过期");
+      wx.getStorage({
+        key: 'flowDetail' + options.id,
+        success: function(res) {
+          //判断是否有图片
+          if (res.data.img != null) {
+            _this.setData({
+              title: res.data.name,
+              message: res.data.message,
+              image: res.data.img
+            });
+          } else {
+            _this.setData({
+              title: res.data.name,
+              message: res.data.message
+            });
+          }
+        },
+      })
+
+    }
+
+  
   
   },
 
@@ -60,9 +90,11 @@ Page({
   previewImage:function(e){
     console.log(e.target);
     var current = e.target.dataset.src;
+    var imgArr=[];
+     imgArr.push(current);
     wx.previewImage({
       current: current, // 当前显示图片的http链接  
-      urls: this.data.image // 需要预览的图片http链接列表  
+      urls: imgArr // 需要预览的图片http链接列表  
     })
   },
 

@@ -41,13 +41,14 @@ Page({
    },
   showRrouting:function(d){
     var _this=this;
-    console.log(d);
+    
 
     db.collection('routing').where({
       workDate: d
     }).get({
         success: function (res) {
-          console.log("success"+res.data);
+          // console.log("aa"+d);
+          // console.log("success"+res.data[0].routMorn);
           if(res.data==""){
             _this.setData({ routMorn: "", routAfter:""})
           }else{
